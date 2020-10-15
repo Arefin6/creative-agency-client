@@ -5,7 +5,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-main">
+    <nav className="navbar navbar-expand-lg navbar-light bg-main pt-3">
     <a className="navbar-brand" href="#"><img src={logo} alt="" style={{width:'150px'}}/></a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

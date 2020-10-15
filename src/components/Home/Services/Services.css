@@ -1,0 +1,13 @@
+.link-service,.link-service:hover{
+    color:#111430;
+    text-decoration: none;
+}
+.service-img{
+    height: 120px;
+    margin-left: 4.5rem;
+    padding-top: 2rem;
+}
+.service-card-container:hover{
+    box-shadow: 10px  10px 5px #d0d1d8; 
+
+}

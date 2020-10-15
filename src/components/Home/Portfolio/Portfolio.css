@@ -1,0 +1,35 @@
+.portfolio-container{
+    padding: 4rem;
+    background-color: #111430;    
+}
+
+.carousel-img{
+    width: 400px;
+    height: 300px;
+    padding: 2rem;
+}
+.carousel{
+    margin-left: 32%;
+}
+.carousel-indicators{
+    position: absolute;
+    top:103%;
+    left:-46%;
+   
+}
+.carousel-indicators .active{
+    background-color: #FBD062;
+}
+.feedback-container{
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+.contact-container{
+    padding: 2rem;
+    background-color: #FBD062;
+    height: 32rem;
+}
+.footer{
+    margin-left: 34rem;
+    margin-top: 2.5rem;
+}
