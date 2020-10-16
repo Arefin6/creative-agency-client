@@ -1,0 +1,19 @@
+.sidebar{
+    background: white;
+   
+    padding: 2rem;
+}
+.sidebar li{
+    margin-bottom: 2em;
+  
+}
+.sidebar li:hover span{
+    display: inline-block;
+    transform: translate(5px);
+}
+.sidebar svg{
+    margin-right: 5px;
+}
+.link-style{
+    color: #111111;
+}

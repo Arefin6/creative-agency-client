@@ -29,7 +29,7 @@ function App()
          <Route  path='/login'>
            <Login></Login>
          </Route>
-         <PrivateRoute  path='/dashboard'>
+         <PrivateRoute  path='/dashboard/order'>
            <Dashboard></Dashboard>
          </PrivateRoute>
        </Switch>

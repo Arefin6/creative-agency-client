@@ -1,0 +1,11 @@
+.dash-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    background-color: white;
+
+}
+body{
+    background-color: #ecf2fa;
+}
