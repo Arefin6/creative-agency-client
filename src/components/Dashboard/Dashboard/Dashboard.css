@@ -6,6 +6,14 @@
     background-color: white;
 
 }
+.makeAdmin-container{
+    padding:  1rem 2rem 0 2rem;
+    background-color: #fff;
+    margin-top: 2rem;
+    height: 200px;
+    margin-left: 1rem;
+    border-radius: 3%;
+}
 body{
     background-color: #ecf2fa;
 }

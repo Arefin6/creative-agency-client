@@ -1,19 +1,15 @@
 import React from 'react';
-import { useContext } from 'react';
-import logo from '../../../images/logos/logo.png';
-import { userContext } from '../../../App';
 import './Dashboard.css';
 import Sidebar from '../Sidebar/Sidebar';
 import OrderForm from '../OrderForm/OrderForm';
+import DashboardHeader from '../DashboardHeader/DashboardHeader';
 
 const Dashboard = () => {
-    const [loggedInUser,setLoggedInUser] = useContext(userContext);
+    
     return (
         <div>
-           <div className="dash-header">
-               <img src={logo} alt="" style={{width:"100px"}}/>
-               <h4>Orders</h4>
-               <p>{loggedInUser.name}</p> 
+           <div>
+              <DashboardHeader></DashboardHeader>
                
            </div>
             <div className="row ">

@@ -27,7 +27,7 @@ const Navbar = () => {
         </li>
         
         </ul>
-        <Link className="btn btn-brand pr-4 mr-5">Login</Link>
+        <Link className="btn btn-brand pr-4 mr-5" to="/dashboard/order">Login</Link>
     </div>
     </nav>
     );

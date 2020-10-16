@@ -10,10 +10,17 @@
 .sidebar li:hover span{
     display: inline-block;
     transform: translate(5px);
+    color:#4ea84e
 }
 .sidebar svg{
     margin-right: 5px;
 }
+.sidebar .link-style:hover{
+    color:#4ea84e;
+}
 .link-style{
     color: #111111;
+}
+.is-active{
+  color:#36b336;
 }

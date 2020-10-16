@@ -1,55 +1,81 @@
-import { faCartPlus,faCommentAlt, faListAlt} from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus,faCommentAlt, faListAlt, faPlus, faUserPlus} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { userContext } from '../../../App';
 import './Sidebar.css';
 
 const Sidebar = () => {
+    const location= useLocation();
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/isAdmin', {
+    //         method: 'POST',
+    //         headers: { 'content-type': 'application/json' },
+    //         body: JSON.stringify({ email: loggedInUser.email })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => setIsAdmin(data));
+    // }, [])
     return (
-        <div>
-            <div className="sidebar d-flex flex-column justify-content-between  py-5 px-4" style={{ height: "100vh" }}>
+     
+        <div className="sidebar d-flex flex-column justify-content-between  py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
                 <li>
-                    <Link to="/dashboard/order" className="link-style">
+                    <NavLink to="/dashboard/order" activeClassName={location.pathname === "/dashboard/order" ? "is-active" : ""} className="link-style">
                         <FontAwesomeIcon icon={faCartPlus} /> <span>Order</span>
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/" className="link-style">
+                    <NavLink to="/dashboard/service" 
+                    activeClassName={location.pathname === "/dashboard/service" ? "is-active" : ""}
+                    className="link-style">
                         <FontAwesomeIcon icon={faListAlt}  /> <span>Service List</span>
-                    </Link>
+                    </NavLink>
                 </li>
-                 <div>
-                    <li>
-                        <Link to="/allPatients" className="link-style" >
+                   <li>
+                        <NavLink to="/dashboard/review"  
+                         activeClassName={location.pathname === "/dashboard/review" ? "is-active" : ""}
+                        className="link-style" >
                             <FontAwesomeIcon icon={faCommentAlt}  /> <span>Review</span>
-                        </Link>
+                        </NavLink>
                     </li>
-                    {/* <li>
-                        <Link to="/patient" className="text-white">
-                            <FontAwesomeIcon icon={faUsers} /> <span>Patients</span>
-                        </Link>
+                   <div>
+                    <li>
+                        <NavLink to="/admin/serviceList"
+                         className="link-style"
+                         activeClassName={location.pathname === "/admin/serviceList" ? "is-active" : ""}
+                        >
+                            <FontAwesomeIcon icon={faListAlt}  /> <span>ServiceList</span>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/prescriptions" className="text-white">
-                            <FontAwesomeIcon icon={faFileAlt} /> <span>Prescriptions</span>
-                        </Link>
+                        <NavLink to="/admin/addService"
+                          className="link-style"
+                          activeClassName={location.pathname === "/admin/addService" ? "is-active" : ""}
+                        >
+                            <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/addDoctor" className="text-white" >
-                            <FontAwesomeIcon icon={faUserPlus} /> <span>Add Doctor</span>
-                        </Link>
+                        <NavLink to="/admin/makeAdmin"
+                         className="link-style"
+                         activeClassName={location.pathname === "/admin/makeAdmin" ? "is-active" : ""}
+                        >
+                            <FontAwesomeIcon icon={faUserPlus} /> <span>Make admin</span>
+                        </NavLink>
                     </li>
-                    <li>
-                        <Link to="/doctor/setting" className="text-white" >
-                            <FontAwesomeIcon icon={faCog} /> <span>Settings</span>
-                        </Link>
-                    </li> */}
+                   
+                    
                 </div>
             </ul>
-           
-        </div> 
         </div>
+           
     );
 };
 
