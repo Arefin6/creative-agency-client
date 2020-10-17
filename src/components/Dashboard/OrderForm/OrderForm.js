@@ -1,8 +1,39 @@
 import React from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 const OrderForm = () => {
    const { register, handleSubmit, watch, errors } = useForm();
-   const onSubmit = data => console.log(data);
+   const [file,setFile]= useState(null);
+
+   const handleFileChange =(e) =>{
+      const newFile = e.target.files[0];
+      setFile(newFile);
+   }
+
+   const onSubmit = data => {
+    const formData = new FormData();
+        formData.append('file', file);
+        formData.append('name', data.name);
+        formData.append('email', data.email);
+        formData.append('price', data.price);
+        formData.append('description', data.description);
+        formData.append('serviceName', data.serviceName);
+       
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if(data){
+                    alert("Your Order Recived!");
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    
+   };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="p-4">
         <div className="form-group">
@@ -36,10 +67,11 @@ const OrderForm = () => {
             />
             {errors.price && <span className="text-danger">This field is required</span>}
 
-            <input name="image" ref={register({ required: true })}
+            <input name="file" required="true"
+             onChange={handleFileChange}
             className="form-control" placeholder="uploadImg" type="file"
             />
-            {errors.image && <span className="text-danger">This field is required</span>}
+            
         </div> 
       
       <input type="submit" value="send" className="btn-brand mt-3" />

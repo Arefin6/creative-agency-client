@@ -47,7 +47,7 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                 
-                 {isAdmin && <div>
+                  <div>
                     <li>
                         <NavLink to="/admin/serviceList"
                          className="link-style"
@@ -74,7 +74,7 @@ const Sidebar = () => {
                     </li>
                    
                     
-                </div>}
+                </div>
             </ul>
         </div>
            
