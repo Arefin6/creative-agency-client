@@ -1,31 +1,30 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import ServicesCard from '../ServicesCard/ServicesCard';
 import './Services.css';
 
 
 const Services = () => {
-    const serviceData = [
-        {
-            name : 'Web & Mobile design',
-            description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-            img:'service1'
-        },
-        {
-            name : 'Graphic Design',
-            description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-            img:'service2'
-        },
-        {
-            name : 'Web Development',
-            description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-            img:'service3'
-        },
-    ]
+    
+    const [serviceData,setServiceData] = useState([]);
+     useEffect(()=>{
+          fetch('http://localhost:5000/allService',{
+            headers:{
+                'Content-Type': 'application/json',
+                // body: JSON.stringify({ email: loggedInUser.email })
+            }
+          })
+          .then(res=> res.json())
+          .then(data =>setServiceData(data))
+
+     },[])  
+
     return (
         <section className="pt-5 mt-5">
             <h2 className="text-center">Provide Awesome <span className="text-brand">Services</span></h2>
              <div className="row container p-5 mt-4 ml-5">
-                 {serviceData.map(service => <ServicesCard service={service} key={service.name}></ServicesCard>)}
+                 {serviceData.map(service => <ServicesCard service={service} key={service.title}></ServicesCard>)}
              </div>
         </section>
     );

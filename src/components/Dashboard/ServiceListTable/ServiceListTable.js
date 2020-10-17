@@ -1,6 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const ServiceListTable = () => {
+  
+     const [serviceData,setServiceData] = useState([]);
+     useEffect(()=>{
+          fetch('http://localhost:5000/orderList')
+          .then(res=> res.json())
+          .then(data =>setServiceData(data))
+
+     },[])
+
     return (
         
     <table className="table table-borderless bg-light mt-4 ">
@@ -13,23 +24,19 @@ const ServiceListTable = () => {
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th>1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+           {
+            serviceData.map(data =>
+              
+           <tr>
+                <th>{data.name}</th>
+                 <td>{data.email}</td>
+                  <td>{data.serviceName}</td>
+                  <td>{data.description}</td>
             </tr>
-            <tr>
-            <th>2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th >3</th>
-            <td>Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
+
+            )   
+           }
+                      
         </tbody>
         </table>  
         

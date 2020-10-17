@@ -1,24 +1,21 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import FeedbackCard from '../FeedbackCard/FeedbackCard';
 
 const Feedback = () => {
-    const feedbackData = [
-        {
-            name : 'Nask Patrik',
-            title : 'CEO,Manapol',
-            img:'customer-1'
-        },
-        {
-            name : 'Miriam Baron',
-            title : 'CEO,Manapol',
-            img:'customer-2'
-        },
-        {
-            name : 'Bria Malon',
-            title : 'CEO,Manapol',
-            img:'customer-3'
-        },
-    ]
+    const [feedbackData,setFeedbackData] = useState([]);
+     useEffect(()=>{
+          fetch('http://localhost:5000/allReview',{
+            headers:{
+                'Content-Type': 'application/json',
+                // body: JSON.stringify({ email: loggedInUser.email })
+            }
+          })
+          .then(res=> res.json())
+          .then(data =>setFeedbackData(data))
+
+     },[])  
     return (
         <section className="mb-5">
            <h3 className="text-center mt-5">Clients <span className="text-brand">Feedback</span></h3>

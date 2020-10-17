@@ -57,8 +57,8 @@ const OrderForm = () => {
         </div> 
 
         <div className="form-group">
-           <textarea name="details" ref={register({ required: true })} className="form-control" placeholder="projectDetails" id="" cols="30" rows="10"></textarea>
-           {errors.details && <span className="text-danger">This field is required</span>}
+           <textarea name="description" ref={register({ required: true })} className="form-control" placeholder="projectDetails" id="" cols="30" rows="10"></textarea>
+           {errors.description && <span className="text-danger">This field is required</span>}
         </div>
          
         <div className="d-flex">
