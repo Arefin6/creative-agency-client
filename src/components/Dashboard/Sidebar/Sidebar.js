@@ -13,19 +13,20 @@ const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [isAdmin, setIsAdmin] = useState(false);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/isAdmin', {
-    //         method: 'POST',
-    //         headers: { 'content-type': 'application/json' },
-    //         body: JSON.stringify({ email: loggedInUser.email })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => setIsAdmin(data));
-    // }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/isAdmin', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsAdmin(data));
+    }, [])
     return (
      
         <div className="sidebar d-flex flex-column justify-content-between  py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
+                
                 <li>
                     <NavLink to="/dashboard/order" activeClassName={location.pathname === "/dashboard/order" ? "is-active" : ""} className="link-style">
                         <FontAwesomeIcon icon={faCartPlus} /> <span>Order</span>
@@ -45,7 +46,8 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faCommentAlt}  /> <span>Review</span>
                         </NavLink>
                     </li>
-                   <div>
+                
+                 {isAdmin && <div>
                     <li>
                         <NavLink to="/admin/serviceList"
                          className="link-style"
@@ -72,7 +74,7 @@ const Sidebar = () => {
                     </li>
                    
                     
-                </div>
+                </div>}
             </ul>
         </div>
            
