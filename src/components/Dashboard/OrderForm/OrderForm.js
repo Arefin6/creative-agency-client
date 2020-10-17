@@ -19,7 +19,7 @@ const OrderForm = () => {
         formData.append('description', data.description);
         formData.append('serviceName', data.serviceName);
        
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://frozen-headland-95173.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })

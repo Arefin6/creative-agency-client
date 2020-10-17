@@ -6,7 +6,7 @@ import FeedbackCard from '../FeedbackCard/FeedbackCard';
 const Feedback = () => {
     const [feedbackData,setFeedbackData] = useState([]);
      useEffect(()=>{
-          fetch('http://localhost:5000/allReview',{
+          fetch('https://frozen-headland-95173.herokuapp.com/allReview',{
             headers:{
                 'Content-Type': 'application/json',
                 // body: JSON.stringify({ email: loggedInUser.email })

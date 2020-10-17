@@ -9,7 +9,7 @@ const Services = () => {
     
     const [serviceData,setServiceData] = useState([]);
      useEffect(()=>{
-          fetch('http://localhost:5000/allService',{
+          fetch('https://frozen-headland-95173.herokuapp.com/allService',{
             headers:{
                 'Content-Type': 'application/json',
                 // body: JSON.stringify({ email: loggedInUser.email })

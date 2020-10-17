@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const { handleSubmit, register, errors } = useForm();
     const onSubmit = (values,e) =>{
           
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://frozen-headland-95173.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

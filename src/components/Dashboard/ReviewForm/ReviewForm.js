@@ -5,7 +5,7 @@ const ReviewForm = () => {
 
    const onSubmit = (data,e) =>{
     const reviewData = {review:data}   
-    fetch('http://localhost:5000/addReview', {
+    fetch('https://frozen-headland-95173.herokuapp.com/addReview', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ const ServiceListCard = () => {
     const [serviceCard,setServiceCard] = useState([]);
     const [loggedInUser,setLoggedInUser] = useContext(userContext);
      useEffect(()=>{
-          fetch('http://localhost:5000/serviceList?email='+ loggedInUser.email,{ 
+          fetch('https://frozen-headland-95173.herokuapp.com/serviceList?email='+ loggedInUser.email,{ 
             headers:{
                 'Content-Type': 'application/json',
                 // body: JSON.stringify({ email: loggedInUser.email })

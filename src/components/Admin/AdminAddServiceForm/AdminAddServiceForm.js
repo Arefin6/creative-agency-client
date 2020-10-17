@@ -17,7 +17,7 @@ const AdminAddServiceForm = () => {
         formData.append('title', serviceInfo.title);
         formData.append('description', serviceInfo.description);
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://frozen-headland-95173.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
