@@ -23,6 +23,6 @@ A full-stack web app For Digital service where you can Order for Digital Service
   <li>Node.js</li>
   <li>MongoDB</li>
   <li>Firebase Authentication</li>
- <li>Firebase Hosting/li>
+ <li>Firebase Hosting</li>
 </ul>
 
