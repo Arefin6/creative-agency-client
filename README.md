@@ -3,7 +3,7 @@ Dev Connector
 
 Live: https://creative-agency-6fb60.web.app/
 
-Serside Code: https://github.com/Arefin6/creative-app-server
+ServerSide Code: https://github.com/Arefin6/creative-app-server
 
 A full-stack web app For Digital service where you can Order for Digital Service.
 
